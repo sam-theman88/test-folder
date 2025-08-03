@@ -48,4 +48,49 @@ class Order:
             self.drinks.clear()
         
         else:
-            print("Checkout cancelled.")
+            print("\nCheckout cancelled.")
+
+# main method to start cafe app by displaying menu and handling user input
+def main():
+    
+    menu = [
+        Coffee("Espresso", 3.5),
+        Coffee("Latte", 6),
+        Coffee("Cappuccino", 5.5),
+        Coffee("Americano", 3.5),
+        Coffee("Chai tea", 5.75)
+    ]
+    
+    order = Order()
+    
+    # handles user interaction
+    while True:
+        if not order.drinks:
+            print("\nTop of the morning to you dear lad! I'm Harry Longbottom and I'll be your barista for today, how may I be of service?")
+        
+        print("\n--- Coffee Menu ---")
+        for i, coffee in enumerate(menu, 1):
+            print(f"{i}. {coffee.name} - ${coffee.price}")
+        
+        print("-----------")
+        print("6. View Order")
+        print("7. Checkout")
+        print("8. Exit")
+        
+        choice = int(input("\nWhich option tickles your fancy? "))
+        
+        if choice in [1, 2, 3, 4, 5]:
+            order.add_drink(menu[choice - 1])
+        elif choice == 6:
+            order.show_order()
+        elif choice == 7:
+            order.checkout()
+        elif choice == 8:
+            print("\nThanks for visiting. Have a great day ahead :)")
+            break
+        else:
+            print("\nInvalid choice. Please choose a valid number from the menu.")
+
+# executes main method when app is opened
+if __name__ == "__main__":
+    main()
