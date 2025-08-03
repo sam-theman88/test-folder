@@ -31,7 +31,7 @@ class Order:
         for i, drink in enumerate(self.drinks, 1):
             print(f"{i}. {drink.name} - ${drink.price}")
         
-        print(f"\nYour total will be ${self.total()}\n All proceeds will contribute to the Save_Samuel's_Dreams_Fund.")
+        print(f"\nYour total will be ${self.total()}\nAll proceeds will contribute to the Save_Samuel's_Dreams_Fund.")
     
     # func to handle customer's checkout process
     def checkout(self):
@@ -63,11 +63,11 @@ def main():
     
     order = Order()
     
+    # print greeting
+    print("\nTop of the morning to you dear lad! I'm Harry Longbottom and I'll be your barista for today, how may I be of service?")
+    
     # handles user interaction
     while True:
-        if not order.drinks:
-            print("\nTop of the morning to you dear lad! I'm Harry Longbottom and I'll be your barista for today, how may I be of service?")
-        
         print("\n--- Coffee Menu ---")
         for i, coffee in enumerate(menu, 1):
             print(f"{i}. {coffee.name} - ${coffee.price}")
