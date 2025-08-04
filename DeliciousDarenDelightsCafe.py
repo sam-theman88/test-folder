@@ -68,6 +68,7 @@ def main():
     
     # handles user interaction
     while True:
+        print("---------------------------------------------")
         print("A) View Coffee Menu")
         print("B) View Order")
         print("C) Checkout")
