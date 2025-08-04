@@ -83,7 +83,7 @@ def main():
             
             choice = input("\nWhich option tickles your fancy? ")
             
-            if choice in [1, 2, 3, 4, 5]:
+            if choice in ["1", "2", "3", "4", "5"]:
                 order.add_drink(menu[int(choice) - 1])
             else:
                 print("\nInvalid choice. Please choose a valid option from the menu.")
