@@ -15,7 +15,7 @@ class Order:
         if coffee.name.strip().lower() == "chai tea":
             print("\nWhat did you just say??? Chai TEA!?!? Chai means tea bro! You're saying tea tea. Would I ask you for a coffee coffee with room for cream cream?")
         else:
-            print(f"\nGreat choice! One {coffee.name} coming right up.")
+            print(f"\nGreat choice! Order up, one {coffee.name} to go!")
     
     # func to calculate total price
     def total(self):
@@ -64,28 +64,31 @@ def main():
     order = Order()
     
     # print greeting
-    print("\nTop of the morning to you dear lad! I'm Harry Longbottom and I'll be your barista for today, how may I be of service?")
+    print("\nTop of the morning to you dear lad! I'm Harry Longbottom and I'll be your barista for today, glad to be of service.")
     
     # handles user interaction
     while True:
-        print("\n--- Coffee Menu ---")
-        for i, coffee in enumerate(menu, 1):
-            print(f"{i}. {coffee.name} - ${coffee.price}")
+        print("A) View Coffee Menu")
+        print("B) View Order")
+        print("C) Checkout")
+        print("D) Exit")
         
-        print("-----------")
-        print("6. View Order")
-        print("7. Checkout")
-        print("8. Exit")
+        action = input("\nWhat would you like to do? ")
         
-        choice = int(input("\nWhich option tickles your fancy? "))
-        
-        if choice in [1, 2, 3, 4, 5]:
-            order.add_drink(menu[choice - 1])
-        elif choice == 6:
+        if action == "A":
+            print("\n--- Coffee Menu ---")
+            for i, coffee in enumerate(menu, 1):
+                print(f"{i}. {coffee.name} - ${coffee.price}")
+            
+            choice = input("\nWhich option tickles your fancy? ")
+            
+            if choice in [1, 2, 3, 4, 5]:
+                order.add_drink(menu[choice - 1])
+        elif action == "B":
             order.show_order()
-        elif choice == 7:
+        elif action == "C":
             order.checkout()
-        elif choice == 8:
+        elif action == "D":
             print("\nThanks for visiting. Have a great day ahead :)")
             break
         else:
