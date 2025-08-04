@@ -81,10 +81,13 @@ def main():
             for i, coffee in enumerate(menu, 1):
                 print(f"{i}. {coffee.name} - ${coffee.price}")
             
-            choice = input("\nWhich option tickles your fancy? ")
-            
-            if choice in [1, 2, 3, 4, 5]:
-                order.add_drink(menu[choice - 1])
+            try:
+                choice = int(input("\nWhich option tickles your fancy? "))
+                
+                if choice in [1, 2, 3, 4, 5]:
+                    order.add_drink(menu[choice - 1])
+            except Exception as e:
+                print("\nInvalid choice. Please choose a valid option from the menu.")
         elif action.strip().lower() == "b":
             order.show_order()
         elif action.strip().lower() == "c":
@@ -93,7 +96,7 @@ def main():
             print("\nThanks for visiting. Have a great day ahead :)")
             break
         else:
-            print("\nInvalid choice. Please choose a valid number from the menu.")
+            print("\nInvalid choice. Please choose a valid action.")
 
 # executes main method when app is opened
 if __name__ == "__main__":
