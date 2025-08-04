@@ -75,7 +75,7 @@ def main():
         
         action = input("\nWhat would you like to do? ")
         
-        if action == "A":
+        if action.strip().lower() == "a":
             print("\n--- Coffee Menu ---")
             for i, coffee in enumerate(menu, 1):
                 print(f"{i}. {coffee.name} - ${coffee.price}")
@@ -84,11 +84,11 @@ def main():
             
             if choice in [1, 2, 3, 4, 5]:
                 order.add_drink(menu[choice - 1])
-        elif action == "B":
+        elif action.strip().lower() == "b":
             order.show_order()
-        elif action == "C":
+        elif action.strip().lower() == "c":
             order.checkout()
-        elif action == "D":
+        elif action.strip().lower() == "d":
             print("\nThanks for visiting. Have a great day ahead :)")
             break
         else:
